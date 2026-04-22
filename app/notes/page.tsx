@@ -2,7 +2,6 @@ import {
   dehydrate,
   HydrationBoundary,
   QueryClient,
-  useQuery,
 } from "@tanstack/react-query";
 import NotesClient from "@/app/notes/Notes.client";
 import { fetchNotes } from "@/lib/api";
