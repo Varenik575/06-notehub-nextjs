@@ -21,8 +21,8 @@ const NoteDetails = async ({ params }: Props) => {
       queryKey: ["note", id],
       queryFn: () => fetchNoteById(id),
     });
-  } catch (Error) {
-    throw Error;
+  } catch (error) {
+    throw error;
   }
 
   return (

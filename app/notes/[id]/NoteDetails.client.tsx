@@ -13,6 +13,7 @@ export default function NoteDetailsClient() {
     queryKey: ["note", noteId],
     queryFn: () => fetchNoteById(noteId),
     placeholderData: keepPreviousData,
+    refetchOnMount: false,
   });
 
   if (error) {
@@ -31,7 +32,7 @@ export default function NoteDetailsClient() {
             </div>
             <p className={css.tag}>{data.tag}</p>
             <p className={css.content}>{data.content}</p>
-            {/* <p className={css.date}>{data.createdAt}</p> */}
+            <p className={css.date}>{data.createdAt}</p>
           </div>
         </div>
       )}
