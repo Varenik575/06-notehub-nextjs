@@ -19,11 +19,15 @@ export default function NotesClient() {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  const { data /*, error, isLoading, isError*/ } = useQuery({
+  const { data, error } = useQuery({
     queryKey: ["notes", query, currentPage],
     queryFn: () => fetchNotes(query, currentPage),
     placeholderData: keepPreviousData,
   });
+
+  if (error) {
+    throw error;
+  }
 
   const handleQueryChange = useDebouncedCallback((newQuery: string) => {
     setQuery(newQuery);
